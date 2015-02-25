@@ -3,11 +3,10 @@
 //Chart.defaults.global.responsive = true;
 
 var line = document.getElementById("time_chart").getContext("2d");
-
 var data = {
     labels: [ "August 2009", "September 2009", "October 2009", "November 2009", "December 2009",
               "January 2010", "February 2010", "March 2010", "April 2010", 
-              "May 2010", "June 2010", "July 2010", "August", "September", 
+              "May 2010", "June 2010", "July 2010", "August 2010", "September 2010", 
               "October 2010", "November 2010", "December 2010"],
     datasets: [
         {
@@ -22,11 +21,9 @@ var data = {
         }
     ]
 };
-
 var lineChart = new Chart(line).Line(data, {scaleBeginAtZero: true});
 
 var donut = document.getElementById("donut_chart").getContext("2d");
-
 var donut_data = [
     {
         value: 35,
@@ -65,6 +62,31 @@ var donut_data = [
         label: "Simple Assault"
     }
 ]
-
 var doughnut = new Chart(donut).Doughnut(donut_data, {});
+
+
+var bar = document.getElementById("bar_chart").getContext("2d");
+var bar_data = {
+    labels: ["Aggravated Assault", "Burglary", "Murder", "Rape", 
+             "Robbery", "Simple Assault"],
+    datasets: [
+        {
+            label: "Men",
+            fillColor: "rgba(220,220,220,0.5)",
+            strokeColor: "rgba(220,220,220,0.8)",
+            highlightFill: "rgba(220,220,220,0.75)",
+            highlightStroke: "rgba(220,220,220,1)",
+            data: [18, 21, 3, 0, 11, 79]
+        },
+        {
+            label: "Women",
+            fillColor: "rgba(151,187,205,0.5)",
+            strokeColor: "rgba(151,187,205,0.8)",
+            highlightFill: "rgba(151,187,205,0.75)",
+            highlightStroke: "rgba(151,187,205,1)",
+            data: [21, 39, 0, 2, 8, 113]
+        }
+    ]
+};
+var barChart = new Chart(bar).Bar(bar_data, {});
 
