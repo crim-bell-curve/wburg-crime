@@ -1,6 +1,6 @@
 // Written by Kelvin Abrokwa-Johnson
 
-Chart.defaults.global.responsive = true;
+//Chart.defaults.global.responsive = true;
 
 var ctx = document.getElementById("time_chart").getContext("2d");
 
