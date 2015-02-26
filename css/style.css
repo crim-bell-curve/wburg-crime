@@ -12,3 +12,7 @@ canvas {
   margin-right: auto;
   display: block;
 }
+
+#table_container {
+  width: 100%;
+}
