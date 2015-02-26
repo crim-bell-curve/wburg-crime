@@ -1,6 +1,3 @@
-// Written by Kelvin Abrokwa-Johnson
-
-//Chart.defaults.global.responsive = true;
 
 var line = document.getElementById("time_chart").getContext("2d");
 var data = {
