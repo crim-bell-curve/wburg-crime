@@ -16,3 +16,7 @@ canvas {
 #table_container {
   width: 100%;
 }
+
+h2 {
+  text-align: center;
+}
