@@ -117,7 +117,7 @@ var race_chart = c3.generate({
     },
     bindto: '#race_bar'
 });
-
+/*
 var age_line = document.getElementById("age_line").getContext("2d");
 var age_data = {
     labels: [ "August 2009", "September 2009", "October 2009", "November 2009", "December 2009",
@@ -138,6 +138,7 @@ var age_data = {
     ]
 };
 var lineChart = new Chart(age_line).Line(age_data, {scaleBeginAtZero: true});
+*/
 /*
 var bar = document.getElementById("bar_chart").getContext("2d");
 var bar_data = {
