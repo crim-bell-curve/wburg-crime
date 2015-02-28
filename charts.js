@@ -122,13 +122,10 @@ function generateCharts() {
 window.addEventListener('load', function(){
     generateCharts();
 })
-/*
+
 var age_line = document.getElementById("age_line").getContext("2d");
 var age_data = {
-    labels: [ "August 2009", "September 2009", "October 2009", "November 2009", "December 2009",
-              "January 2010", "February 2010", "March 2010", "April 2010", 
-              "May 2010", "June 2010", "July 2010", "August 2010", "September 2010", 
-              "October 2010", "November 2010", "December 2010"],
+    labels: [1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 59, 60, 61, 62, 63, 64, 65, 67, 71, 74, 75, 82, 84, 88],
     datasets: [
         {
             label: "My First dataset",
@@ -138,12 +135,12 @@ var age_data = {
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [14,25,22,21,17,18,10,10,12,29,22,23,29,28,29,32,14]
+            data: [1, 1, 1, 1, 1, 1, 2, 3, 1, 5, 5, 8, 7, 5, 3, 11, 7, 20, 8, 14, 8, 8, 17, 14, 12, 6, 5, 7, 4, 8, 5, 6, 3, 3, 6, 4, 5, 8, 2, 5, 5, 3, 7, 3, 3, 5, 3, 5, 5, 4, 1, 1, 5, 1, 2, 2, 1, 2, 1, 1, 2, 2, 1, 1, 1, 2, 1, 1, 1]
         }
     ]
 };
-var lineChart = new Chart(age_line).Line(age_data, {scaleBeginAtZero: true});
-*/
+var age_lineChart = new Chart(age_line).Line(age_data, {scaleBeginAtZero: true});
+
 /*
 var bar = document.getElementById("bar_chart").getContext("2d");
 var bar_data = {
