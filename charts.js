@@ -90,7 +90,7 @@ function generateCharts() {
     });
 
     var race_colors = ['#3BB6C5', '#F3E0A8', '#EF616D']
-    var race_chart = c3.generate({
+    var race_chart_raw = c3.generate({
         data: {
             columns: [
                 ['Asian', 0, 2, 0, 0, 3, 1],
@@ -114,9 +114,45 @@ function generateCharts() {
             x : {
                 type: 'category',
                 categories: ["Aggravated Assault", "Burglary", "Murder", "Rape", "Robbery", "Simple Assault"]
+            },
+            y: {
+                label: 'number'
             }
         },
-        bindto: '#race_bar'
+        bindto: '#raw_race_bar'
+    });
+
+    var race_chart_adj = c3.generate({
+        data: {
+            columns: [
+                ['Asian', 0.0, 24.00103456987798, 0.0, 0.0, 55.34961479335362, 2.1148425877292882],
+                ['Black', 94.99661623518885, 41.37454824580409, 83.81387064455082, 0.0, 28.271192517100385, 80.20547786461908],
+                ['White', 5.003383764811139, 34.62441718431793, 16.18612935544918, 100.0, 16.379192689546006, 17.67967954765163]
+            ],
+            type: 'bar',
+            colors: {
+                Asian: '#3BB6C5', 
+                Black: '#F3E0A8', 
+                White: '#EF616D'
+            }
+        },
+        bar: {
+            width: {
+                ratio: 0.5
+            }
+
+        },
+        axis: {
+            x : {
+                type: 'category',
+                categories: ["Aggravated Assault", "Burglary", "Murder", "Rape", "Robbery", "Simple Assault"]
+            },
+            y: {
+                max: 90,
+                label: 'percentage'
+            }
+        },
+        bindto: '#adj_race_bar'
     });
 }
 window.addEventListener('load', function(){

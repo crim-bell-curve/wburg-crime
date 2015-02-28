@@ -17,9 +17,10 @@ function addRow(arr) {
 }
 
 raw_data.forEach(addRow)
-
+/*
 $(document).ready(function(){
     $('#crime_table').DataTable({
     	"scrollX": true
     });
 });
+*/
