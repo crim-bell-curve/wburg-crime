@@ -64,6 +64,9 @@ function generateCharts() {
             x : {
                 type: 'category',
                 categories: ["Aggravated Assault", "Burglary", "Murder", "Rape", "Robbery", "Simple Assault"]
+            },
+            y: {
+                label: 'Number of Victims'
             }
         },
         bindto: '#gender_bar'
@@ -96,7 +99,7 @@ function generateCharts() {
                 categories: ["Aggravated Assault", "Burglary", "Murder", "Rape", "Robbery", "Simple Assault"]
             },
             y: {
-                label: 'number'
+                label: 'Number of Victims'
             }
         },
         bindto: '#raw_race_bar'
@@ -129,7 +132,7 @@ function generateCharts() {
             },
             y: {
                 max: 90,
-                label: 'percentage'
+                label: 'Percentage'
             }
         },
         bindto: '#adj_race_bar'
