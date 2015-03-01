@@ -1,66 +1,46 @@
 function generateCharts() {
 
-    var line = document.getElementById("time_chart").getContext("2d");
-    var data = {
-        labels: [ "August 2009", "September 2009", "October 2009", "November 2009", "December 2009",
+    var chart = c3.generate({
+        data: {
+            columns: [
+                ["Aggravated Assault", 35],
+                ["Burglary", 60],
+                ["Murder", 3],
+                ["Rape", 2],
+                ["Robbery", 23],
+                ["Simple Assault", 233]
+            ],
+            type : 'donut'
+        },
+        donut: {
+            title: "Type of Crime"
+        },
+        bindto: '#donut'
+    });
+
+    var chart = c3.generate({
+        data: {
+            columns: [
+                ['Crimes', 14,25,22,21,17,18,10,10,12,29,22,23,29,28,29,32,14]
+            ]
+        },
+        axis: {
+            x: {
+                type: 'category',
+                categories: ["August 2009", "September 2009", "October 2009", "November 2009", "December 2009",
                   "January 2010", "February 2010", "March 2010", "April 2010", 
                   "May 2010", "June 2010", "July 2010", "August 2010", "September 2010", 
-                  "October 2010", "November 2010", "December 2010"],
-        datasets: [
-            {
-                label: "My First dataset",
-                fillColor: "rgba(220,220,220,0.2)",
-                strokeColor: "rgba(220,220,220,1)",
-                pointColor: "rgba(220,220,220,1)",
-                pointStrokeColor: "#fff",
-                pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(220,220,220,1)",
-                data: [14,25,22,21,17,18,10,10,12,29,22,23,29,28,29,32,14]
+                  "October 2010", "November 2010", "December 2010"]
+            },
+            y: {
+                label: 'Number of Crimes'
             }
-        ]
-    };
-    var lineChart = new Chart(line).Line(data, {scaleBeginAtZero: true});
-
-    var donut = document.getElementById("donut_chart").getContext("2d");
-    var donut_data = [
-        {
-            value: 35,
-            color:"#F7464A",
-            highlight: "#000",
-            label: "Aggravated Assault"
         },
-        {
-            value: 60,
-            color: "#4E5237",
-            highlight: "#000",
-            label: "Burglary"
+        legend: {
+            show: false
         },
-        {
-            value: 3,
-            color: "#F3E0A8",
-            highlight: "#000",
-            label: "Murder"
-        },
-        {
-            value: 2,
-            color:"#EF616D",
-            highlight: "#000",
-            label: "Rape"
-        },
-        {
-            value: 23,
-            color: "#F6A4EC",
-            highlight: "#000",
-            label: "Robbery"
-        },
-        {
-            value: 233,
-            color: "#3BB6C5",
-            highlight: "#000",
-            label: "Simple Assault"
-        }
-    ]
-    var doughnut = new Chart(donut).Doughnut(donut_data, {});
+        bindto: '#time'
+    });
 
     var gender_chart = c3.generate({
         data: {
@@ -125,9 +105,9 @@ function generateCharts() {
     var race_chart_adj = c3.generate({
         data: {
             columns: [
-                ['Asian', 0.0, 24.00103456987798, 0.0, 0.0, 55.34961479335362, 2.1148425877292882],
-                ['Black', 94.99661623518885, 41.37454824580409, 83.81387064455082, 0.0, 28.271192517100385, 80.20547786461908],
-                ['White', 5.003383764811139, 34.62441718431793, 16.18612935544918, 100.0, 16.379192689546006, 17.67967954765163]
+                ['Asian', 0, 24, 0, 0, 55, 2],
+                ['Black', 95, 41, 84, 0, 28, 80],
+                ['White', 5, 35, 16, 100, 16, 18]
             ],
             type: 'bar',
             colors: {
@@ -154,52 +134,31 @@ function generateCharts() {
         },
         bindto: '#adj_race_bar'
     });
+
+    var chart = c3.generate({
+        data: {
+            columns: [
+                ['Number of Victims', 1, 1, 1, 1, 1, 1, 2, 3, 1, 5, 5, 8, 7, 5, 3, 11, 7, 20, 8, 14, 8, 8, 17, 14, 12, 6, 5, 7, 4, 8, 5, 6, 3, 3, 6, 4, 5, 8, 2, 5, 5, 3, 7, 3, 3, 5, 3, 5, 5, 4, 1, 1, 5, 1, 2, 2, 1, 2, 1, 1, 2, 2, 1, 1, 1, 2, 1, 1, 1]
+            ]
+        },
+        axis: {
+            x: {
+                type: 'category',
+                categories: [1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 59, 60, 61, 62, 63, 64, 65, 67, 71, 74, 75, 82, 84, 88],
+                label: 'Age'
+            },
+            y: {
+                label: 'Number of Victims'
+            }
+        },
+        legend: {
+            show: false
+        },
+        bindto: '#age_line'
+    });
+
 }
 window.addEventListener('load', function(){
     generateCharts();
 })
 
-var age_line = document.getElementById("age_line").getContext("2d");
-var age_data = {
-    labels: [1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 59, 60, 61, 62, 63, 64, 65, 67, 71, 74, 75, 82, 84, 88],
-    datasets: [
-        {
-            label: "My First dataset",
-            fillColor: "rgba(220,220,220,0.2)",
-            strokeColor: "rgba(220,220,220,1)",
-            pointColor: "rgba(220,220,220,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [1, 1, 1, 1, 1, 1, 2, 3, 1, 5, 5, 8, 7, 5, 3, 11, 7, 20, 8, 14, 8, 8, 17, 14, 12, 6, 5, 7, 4, 8, 5, 6, 3, 3, 6, 4, 5, 8, 2, 5, 5, 3, 7, 3, 3, 5, 3, 5, 5, 4, 1, 1, 5, 1, 2, 2, 1, 2, 1, 1, 2, 2, 1, 1, 1, 2, 1, 1, 1]
-        }
-    ]
-};
-var age_lineChart = new Chart(age_line).Line(age_data, {scaleBeginAtZero: true});
-
-/*
-var bar = document.getElementById("bar_chart").getContext("2d");
-var bar_data = {
-    labels: ["Aggravated Assault", "Burglary", "Murder", "Rape", 
-             "Robbery", "Simple Assault"],
-    datasets: [
-        {
-            label: "Men",
-            fillColor: "rgba(220,220,220,0.5)",
-            strokeColor: "rgba(220,220,220,0.8)",
-            highlightFill: "rgba(220,220,220,0.75)",
-            highlightStroke: "rgba(220,220,220,1)",
-            data: [18, 21, 3, 0, 11, 79]
-        },
-        {
-            label: "Women",
-            fillColor: "rgba(151,187,205,0.5)",
-            strokeColor: "rgba(151,187,205,0.8)",
-            highlightFill: "rgba(151,187,205,0.75)",
-            highlightStroke: "rgba(151,187,205,1)",
-            data: [21, 39, 0, 2, 8, 113]
-        }
-    ]
-};
-var barChart = new Chart(bar).Bar(bar_data, {});
-*/
