@@ -184,9 +184,11 @@ function generateTable() {
     function addRow(arr) {
         var tr = document.createElement('tr');
         for (var i = 0; i < arr.length; i++) {
-            var td = document.createElement('td');
-            td.innerHTML = arr[i];
-            tr.appendChild(td);
+            if ((i !== 0) && (i !== 3) && (i !== 4) && (i !== 8)) {
+                var td = document.createElement('td');
+                td.innerHTML = arr[i];
+                tr.appendChild(td);
+            }
         }
         tbody.appendChild(tr);
     }
